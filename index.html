@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+    var options = ["r","s","p"];
+    var yourResult = 0;
+    var computerResult = 0;         
+   for (var index = 0; index < 100; index++) {
+       //get input
+    var player1 = prompt("enter r, s, or p");
+    //input validation
+    if (isValid(player1)){
+            var randPlayer2 = options[Math.floor(Math.random() * 2)];
+            alert("Computer randomly chose: " + randPlayer2);
+            //if same input repeat
+            if (player1 === randPlayer2){
+                        alert("Let's do this again!")
+            } else 
+            
+            //find winner
+            if ((player1 === "r" && randPlayer2 === "s") || (player1 === "s" && randPlayer2 === "p") 
+                    || (player1 === "p" && randPlayer2 === "r"))
+                    {
+                        alert("You win!");
+                        yourResult++;
+                    }
+                    else {
+                        alert("You lose!");
+                        computerResult++;
+                    }
+            var cont = confirm("Do you wanna continue playing?");
+            if (cont === false) {
+                index = 101;
+            }
+    }
+    else {
+        alert("enter a valid character please!");
+    }
+   }
+   alert("Thanks for playing! the result is: " + "you: " + yourResult + " Computer: " + computerResult);
+
+    //input validation   
+    function isValid(input) {
+        if (input === "r" || input === "s" || input === "p") {
+            return true;
+        }
+    }
+
+
+    </script>    
+
+
+
+
+
+</body>
+</html>
